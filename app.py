@@ -42,14 +42,14 @@ def predictRoutespeech():
     data = request.json['data']
     df = pd.DataFrame([{'text': str(data)}])
     if page=='logistics_regression':
-        model_load = joblib.load('saved model\LogisticRegression()TfidfVectorizer().pkl')
-        transformer_load = joblib.load('saved model\TfidfVectorizer().pkl')
+        model_load = joblib.load('saved model/LogisticRegression()TfidfVectorizer().pkl')
+        transformer_load = joblib.load('saved model/TfidfVectorizer().pkl')
     elif page == 'random_forest':
-        model_load = joblib.load('saved model\RandomForestClassifier()CountVectorizer().pkl')
-        transformer_load = joblib.load('saved model\CountVectorizer().pkl')
+        model_load = joblib.load('saved model/RandomForestClassifier()CountVectorizer().pkl')
+        transformer_load = joblib.load('saved model/CountVectorizer().pkl')
     elif page == 'multinomial_naive_bayes':
-        model_load = joblib.load('saved model\MultinomialNB()CountVectorizer().pkl')
-        transformer_load = joblib.load('saved model\CountVectorizer().pkl')
+        model_load = joblib.load('saved model/MultinomialNB()CountVectorizer().pkl')
+        transformer_load = joblib.load('saved model/CountVectorizer().pkl')
     result = model_load.predict(transformer_load.transform(df['text']))
 
 
